@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Client;
+use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Database\Factories\CategoryFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -23,8 +25,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'admin@gmail.com',
         // ]);
 
-        Category::factory(10)->create();
+        // Category::factory(10)->create();
 
-        Client::factory(10)->create();
+        // Client::factory(10)->create();
+
+        // Project::factory(10)->create();
+
+        Task::factory(10)->create();
     }
 }

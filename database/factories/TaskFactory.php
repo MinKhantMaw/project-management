@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -28,6 +29,7 @@ class TaskFactory extends Factory
             'due_date' => $this->faker->optional()->dateTimeBetween('now', '+3 month'),
             'assigned_user_id' => $this->faker->optional()->randomElement([User::factory(), null]),
             'project_id' => Project::factory(),
+            'category_id' => Category::factory(),
             'created_by' => $user->id,
             'updated_by' => $user->id,
         ];

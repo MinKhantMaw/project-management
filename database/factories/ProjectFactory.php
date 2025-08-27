@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -32,6 +33,7 @@ class ProjectFactory extends Factory
             'created_by' => $user->id,
             'updated_by' => $user->id,
             'client_id' => Client::factory(),
+            'category_id' => Category::factory(),
         ];
     }
 }
