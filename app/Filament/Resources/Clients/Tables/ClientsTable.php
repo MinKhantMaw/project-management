@@ -21,7 +21,9 @@ class ClientsTable
                     ->searchable(),
                 TextColumn::make('phone')
                     ->searchable(),
-                TextColumn::make('status'),
+                TextColumn::make('status')
+                    ->badge()
+                    ->colors(['active' => 'success', 'in_active' => 'danger']),
                 TextColumn::make('creator.name')
                     ->searchable()
                     ->sortable(),

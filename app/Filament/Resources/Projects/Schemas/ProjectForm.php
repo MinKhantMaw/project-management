@@ -37,6 +37,20 @@ class ProjectForm
                         'completed' => 'Completed',
                         'cancelled' => 'Cancelled',
                     ])
+                    ->colors([
+                        'pending' => 'info',
+                        'on_hold' => 'warning',
+                        'in_progress' => 'primary',
+                        'completed' => 'success',
+                        'cancelled' => 'danger',
+                    ])
+                    ->icons([
+                        'pending' => 'heroicon-o-clock',
+                        'on_hold' => 'heroicon-o-pause',
+                        'in_progress' => 'heroicon-o-pencil',
+                        'completed' => 'heroicon-o-check-circle',
+                        'cancelled' => 'heroicon-o-x-circle',
+                    ])
                     ->grouped()
                     ->default('pending')
                     ->required(),

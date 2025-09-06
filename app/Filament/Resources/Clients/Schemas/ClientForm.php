@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Clients\Schemas;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,8 +25,9 @@ class ClientForm
                     ->tel(),
                 Textarea::make('address')
                     ->columnSpanFull(),
-                Select::make('status')
+                ToggleButtons::make('status')
                     ->options(['active' => 'Active', 'in_active' => 'In active'])
+                    ->colors(['active' => 'success', 'in_active' => 'danger'])
                     ->default('active')
                     ->required(),
                 Select::make('created_by')
