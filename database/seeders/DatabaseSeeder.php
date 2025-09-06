@@ -20,16 +20,17 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Admin',
-        //     'email' => 'admin@gmail.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
 
-        // Category::factory(10)->create();
+        Category::factory(10)->create();
 
-        // Client::factory(10)->create();
+        Client::factory(10)->create();
 
-        // Project::factory(10)->create();
+        Project::factory(10)->create();
 
         Task::factory(10)->create();
     }

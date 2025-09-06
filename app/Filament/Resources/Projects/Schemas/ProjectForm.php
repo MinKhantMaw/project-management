@@ -7,7 +7,9 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\ToggleButtons;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectForm
 {
@@ -22,29 +24,46 @@ class ProjectForm
                 DateTimePicker::make('start_date'),
                 DateTimePicker::make('end_date'),
                 FileUpload::make('image_path')
+                    ->disk('public')
+                    ->preserveFilenames()
+                    ->downloadable()
+                    ->openable()
                     ->image(),
-                Select::make('status')
+                ToggleButtons::make('status')
                     ->options([
-            'pending' => 'Pending',
-            'on_hold' => 'On hold',
-            'in_progress' => 'In progress',
-            'completed' => 'Completed',
-            'cancelled' => 'Cancelled',
-        ])
+                        'pending' => 'Pending',
+                        'on_hold' => 'On hold',
+                        'in_progress' => 'In progress',
+                        'completed' => 'Completed',
+                        'cancelled' => 'Cancelled',
+                    ])
+                    ->grouped()
                     ->default('pending')
                     ->required(),
-                TextInput::make('created_by')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('updated_by')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('client_id')
-                    ->required()
-                    ->numeric(),
-                TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('created_by')
+                    ->searchable()
+                    ->default(Auth::user()->id)
+                    ->preload()
+                    ->relationship('creator', 'name')
+                    ->disabled()
+                    ->required(),
+                Select::make('updated_by')
+                    ->searchable()
+                    ->default(Auth::user()->id)
+                    ->preload()
+                    ->relationship('updater', 'name')
+                    ->disabled()
+                    ->required(),
+                Select::make('client_id')
+                    ->searchable()
+                    ->preload()
+                    ->relationship('client', 'name')
+                    ->required(),
+                Select::make('category_id')
+                    ->searchable()
+                    ->preload()
+                    ->relationship('category', 'name')
+                    ->required(),
             ]);
     }
 }

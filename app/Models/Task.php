@@ -43,4 +43,19 @@ class Task extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function assigneeUser()
+    {
+        return $this->belongsTo(User::class, 'assigned_user_id');
+    }
 }

@@ -14,9 +14,12 @@ class TaskInfolist
             ->components([
                 TextEntry::make('name'),
                 TextEntry::make('description'),
-                ImageEntry::make('image_path'),
-                TextEntry::make('status'),
-                TextEntry::make('priority'),
+                ImageEntry::make('image_path')
+                    ->disk('public'),
+                TextEntry::make('status')
+                    ->badge(),
+                TextEntry::make('priority')
+                    ->badge(),
                 TextEntry::make('due_date')
                     ->date(),
                 TextEntry::make('assigned_user_id')

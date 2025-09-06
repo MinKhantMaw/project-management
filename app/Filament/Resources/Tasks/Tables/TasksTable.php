@@ -19,26 +19,30 @@ class TasksTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('description')
+                    // ->limit(50)
+                    ->words(5)
                     ->searchable(),
-                ImageColumn::make('image_path'),
-                TextColumn::make('status'),
-                TextColumn::make('priority'),
+                ImageColumn::make('image_path')
+                    ->disk('public'),
+                TextColumn::make('status')
+                    ->badge(),
+                TextColumn::make('priority')
+                    ->badge(),
                 TextColumn::make('due_date')
                     ->date()
                     ->sortable(),
-                TextColumn::make('assigned_user_id')
+                TextColumn::make('assigneeUser.name')
+                    ->sortable(),
+                TextColumn::make('project.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('project_id')
+                TextColumn::make('category.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('category_id')
+                TextColumn::make('creator.name')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('created_by')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('updated_by')
+                TextColumn::make('updater.name')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
