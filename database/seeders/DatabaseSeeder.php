@@ -26,12 +26,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-        Category::factory(10)->create();
+        // Category::factory(10)->create();
 
-        Client::factory(10)->create();
+        // Client::factory(10)->create();
 
-        Project::factory(10)->create();
+        // Project::factory(10)->create();
 
-        Task::factory(10)->create();
+        // Task::factory(10)->create();
     }
 }

@@ -20,7 +20,7 @@ class TaskResource extends Resource
 {
     protected static ?string $model = Task::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::Ticket;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::QueueList;
 
     protected static ?string $recordTitleAttribute = 'name';
 

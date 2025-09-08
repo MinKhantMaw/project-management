@@ -1,21 +1,25 @@
 <?php
 
-namespace App\Filament\Resources\Projects\Tables;
+namespace App\Filament\Widgets;
 
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
+use Filament\Tables\Table;
+use Filament\Widgets\TableWidget;
+use Illuminate\Database\Eloquent\Builder;
+use app\Models\Project;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
 
-class ProjectsTable
+class RecentProjects extends TableWidget
 {
-    public static function configure(Table $table): Table
+    protected int | string | array $columnSpan = 'full';
+
+    protected static ?int $sort = 1;
+
+    public function table(Table $table): Table
     {
         return $table
+            ->query(fn(): Builder => Project::query())
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),
@@ -45,22 +49,19 @@ class ProjectsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
+            ->headerActions([
+                //
+            ])
             ->recordActions([
-                // ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make()
+                //
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    //
                 ]),
             ]);
     }
