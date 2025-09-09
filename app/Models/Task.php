@@ -21,7 +21,7 @@ class Task extends Model
         'project_id',
         'created_by',
         'updated_by',
-        'category_id'
+        'category_id',
     ];
 
     public function creator()

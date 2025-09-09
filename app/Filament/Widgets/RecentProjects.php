@@ -2,24 +2,24 @@
 
 namespace App\Filament\Widgets;
 
+use app\Models\Project;
 use Filament\Actions\BulkActionGroup;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
-use app\Models\Project;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 
 class RecentProjects extends TableWidget
 {
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     protected static ?int $sort = 1;
 
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn(): Builder => Project::query())
+            ->query(fn (): Builder => Project::query())
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),

@@ -23,6 +23,7 @@ class ProjectFactory extends Factory
         $user = User::factory()->create();
         $startDate = $this->faker->dateTimeBetween('-6 months', 'now');
         $endDate = $this->faker->dateTimeBetween($startDate, '+1 year');
+
         return [
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),

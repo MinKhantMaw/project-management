@@ -20,7 +20,7 @@ class Project extends Model
         'created_by',
         'updated_by',
         'client_id',
-        'category_id'
+        'category_id',
     ];
 
     public function client()

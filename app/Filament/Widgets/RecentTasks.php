@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Builder;
 
 class RecentTasks extends TableWidget
 {
-    protected int | string | array $columnSpan = 'full';
+    protected int|string|array $columnSpan = 'full';
 
     protected static ?int $sort = 2;
 
     public function table(Table $table): Table
     {
         return $table
-            ->query(fn(): Builder => Task::query())
+            ->query(fn (): Builder => Task::query())
             ->columns([
                 TextColumn::make('name')
                     ->searchable(),

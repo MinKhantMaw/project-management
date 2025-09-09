@@ -12,13 +12,14 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 class SystemOverview extends StatsOverviewWidget
 {
     protected static ?int $sort = 0;
+
     protected function getStats(): array
     {
         return [
             Stat::make('Number Of User', User::count()),
             Stat::make('Number Of Clients', Client::count()),
             Stat::make('Number Of Project', Project::count()),
-            Stat::make('Number Of Task', Task::count())
+            Stat::make('Number Of Task', Task::count()),
         ];
     }
 }

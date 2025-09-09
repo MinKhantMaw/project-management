@@ -5,5 +5,5 @@ namespace App;
 enum CategoryType: string
 {
     case Project = 'project';
-    case Task = 'project';
+    case Task = 'task';
 }
