@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Tasks\Schemas;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Facades\Auth;
 
 class TaskInfolist
 {
@@ -22,16 +23,18 @@ class TaskInfolist
                     ->badge(),
                 TextEntry::make('due_date')
                     ->date(),
-                TextEntry::make('assigned_user_id')
-                    ->numeric(),
-                TextEntry::make('project_id')
-                    ->numeric(),
-                TextEntry::make('category_id')
-                    ->numeric(),
-                TextEntry::make('created_by')
-                    ->numeric(),
-                TextEntry::make('updated_by')
-                    ->numeric(),
+                TextEntry::make('assigneeUser.name')
+                    ->label('Assingee User'),
+                TextEntry::make('project.name')
+                    ->label('Project Name'),
+                TextEntry::make('category.name')
+                    ->label('Category'),
+                TextEntry::make('creator.name')
+                    ->label('Created By Name')
+                    ->default(Auth::user()->name),
+                TextEntry::make('updater.name')
+                    ->label('Updated By Name')
+                    ->default(Auth::user()->name),
                 TextEntry::make('created_at')
                     ->dateTime(),
                 TextEntry::make('updated_at')
