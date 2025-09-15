@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use App\CategoryType;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -76,7 +77,9 @@ class ProjectForm
                 Select::make('category_id')
                     ->searchable()
                     ->preload()
-                    ->relationship('category', 'name')
+                    ->relationship('category', 'name', function ($query) {
+                        $query->where('type', CategoryType::Project->value);
+                    })
                     ->required(),
             ]);
     }
