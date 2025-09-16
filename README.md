@@ -2,6 +2,15 @@
 
 This is a Project Management application built with Laravel.
 
+
+## Features
+
+- User CRUD
+- Category CRUD
+- Project CRUD
+- Task CRUD
+- Role and Permission Management
+
 ## Getting Started
 
 Clone the repository:
@@ -23,3 +32,5 @@ cp .env.example .env
 ```
 
 Configure your `.env` file as needed and continue with the usual Laravel setup.
+
+
