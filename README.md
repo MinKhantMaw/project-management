@@ -1,6 +1,6 @@
 # Project Management App
 
-This is a Project Management application built with Laravel.
+This is a Project Management application built with Laravel and Filament.
 
 ## Getting Started
 
