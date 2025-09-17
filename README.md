@@ -2,6 +2,14 @@
 
 This is a Project Management application built with Laravel and Filament.
 
+## Features
+
+- User CRUD
+- Category CRUD
+- Project CRUD
+- Task CRUD
+- Role and Permission Management
+
 ## Getting Started
 
 Clone the repository:
