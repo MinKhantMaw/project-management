@@ -36,7 +36,7 @@ class ProjectResource extends Resource
     public static function getRelations(): array
     {
         return [
-            TasksRelationManager::class
+            TasksRelationManager::class,
         ];
     }
 

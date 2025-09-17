@@ -44,6 +44,7 @@ class TaskResource extends Resource
     {
         return [
             // ProjectsRelationManager::class
+
         ];
     }
 
